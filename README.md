@@ -13,7 +13,6 @@ Listed in the [Official MCP Registry](https://registry.modelcontextprotocol.io) 
 | | |
 |---|---|
 | **Streamable HTTP** | `https://searcheros.ai/api/mcp/mcp` |
-| **SSE** | `https://searcheros.ai/api/mcp/sse` |
 | **Auth** | OAuth 2.1 (preferred) or Bearer API key |
 | **Discovery** | `https://searcheros.ai/.well-known/mcp.json` |
 
@@ -56,12 +55,13 @@ Treat the key like a password — it carries the same access to your pipeline th
 
 ## Tools
 
-37 tools across 11 categories.
+40 tools across 12 categories. Reviewed acquisition guides are also available as MCP resources.
 
 | Category | Tools | What it covers |
 |---|---:|---|
+| Knowledge | 2 | Search and read reviewed acquisition guides with source citations |
 | Context | 2 | Connectivity check plus profile, buy boxes, pipeline summary, feed stats |
-| Pipeline | 8 | View, create, update, move, and kill deals |
+| Pipeline | 9 | Pipeline health, view, create, update, move, and kill deals |
 | Feed | 5 | Search deals, count, statistics, save, dismiss |
 | Buy Box | 1 | List acquisition criteria (price, industry, location) |
 | Inbox | 4 | List, view, link, and ignore inbound broker email |
@@ -72,16 +72,20 @@ Treat the key like a password — it carries the same access to your pipeline th
 | Tasks | 2 | List and update deal tasks |
 | Deal Documents | 2 | Mint upload URLs and register documents against a deal |
 
-Write operations that meaningfully change your pipeline route through a **confirmation step** rather than executing silently. You can tune this under auto-approve settings.
+Free connections are read-only. Eligible trials and paid plans can also make changes. Confirmations depend on the operation, your account's auto-approve settings, and your AI client's permissions; some routine writes execute immediately. Review both account and client settings before enabling automatic actions.
+
+The connected AI receives the data returned by its tool calls. Its privacy and retention terms apply in addition to [Searcher OS's privacy policy](https://searcheros.ai/privacy).
 
 ---
 
 ## Requirements
 
-- A Searcher OS account on the **Searcher** or **Deal Team** plan
-- Rate limit: 100 requests/minute
+- Any Searcher OS account can connect, including **Free**. Free is read-only and the deal feed is delayed by 21 days.
+- Eligible 7-day trials, **Searcher**, and **Deal Team** plans can also save deals, add notes, and update the pipeline.
+- You can create a free account during the OAuth connection flow without a payment card.
+- Rate limit: 100 requests/minute per connection.
 
-New accounts start with a 7-day free trial.
+The server uses Streamable HTTP. The legacy HTTP+SSE transport is no longer supported.
 
 ---
 
